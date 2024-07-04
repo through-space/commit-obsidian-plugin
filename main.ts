@@ -19,7 +19,7 @@ export default class MyPlugin extends Plugin {
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
-			new Notice('This is a notice!');
+			new Notice('This is a notice 123!');
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
@@ -83,6 +83,7 @@ export default class MyPlugin extends Plugin {
 	}
 
 	async loadSettings() {
+		console.log(this);
 		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
 	}
 
