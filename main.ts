@@ -1,8 +1,8 @@
 import {App, Editor, MarkdownView, Modal,
 	Notice, Plugin, PluginSettingTab, Setting,
 	WorkspaceLeaf} from 'obsidian';
-import {ExampleView} from "./app/views/ExampleView";
-import {VIEW_TYPE_EXAMPLE} from "./app/views/ViewsConsts";
+import {CommitView} from "./app/obsidian_views/CommitView";
+import {VIEW_TYPE_EXAMPLE} from "./app/obsidian_views/ViewsConsts";
 
 // Remember to rename these classes and interfaces!
 
@@ -22,7 +22,7 @@ export default class MyPlugin extends Plugin {
 
 		this.registerView(
 			VIEW_TYPE_EXAMPLE,
-			(leaf) => new ExampleView(leaf)
+			(leaf) => new CommitView(leaf)
 		);
 
 		// This creates an icon in the left ribbon.
