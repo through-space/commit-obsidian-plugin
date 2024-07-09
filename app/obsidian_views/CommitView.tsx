@@ -1,11 +1,11 @@
 import {ItemView, WorkspaceLeaf} from "obsidian";
-import {VIEW_TYPE_EXAMPLE} from "./ViewsConsts";
 import {Root, createRoot} from "react-dom/client";
 import { StrictMode } from "react";
 import {MainView} from "../components/views/main/MainView";
 import {MainContextProvider} from "../context/MainContext";
+import {VIEW_TYPE_EXAMPLE} from "./ViewsConsts";
 
-export class ExampleView extends ItemView {
+export class CommitView extends ItemView {
 	root: Root | null = null;
 	constructor(leaf: WorkspaceLeaf) {
 		super(leaf);
@@ -27,7 +27,7 @@ export class ExampleView extends ItemView {
 		this.root = createRoot(this.containerEl.children[1]);
 		this.root.render(
 			<StrictMode>
-				<MainContextProvider obsidianApp={this.app}>;
+				<MainContextProvider obsidianApp={this.app}>
 					<MainView />
 				</MainContextProvider>
 			</StrictMode>
