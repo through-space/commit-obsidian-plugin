@@ -1,4 +1,5 @@
-import {useMainContext} from "../../context/MainContext";
+import {useMainContext} from "../../../context/MainContext";
+import {BranchNameTitle} from "../../styled_components/atoms/titles";
 
 export const MainView = () => {
 	const context = useMainContext();
@@ -12,5 +13,12 @@ export const MainView = () => {
 	console.log(obsidianFilesProvider);
 	console.log("obsidianFilesProvider");
 
-	return <h4>Hello, React!</h4>;
+	return (
+		<>
+			<BranchNameTitle>
+				I am the title
+			</BranchNameTitle>
+			<h4>Hello, React!</h4>
+		</>
+	);
 };

@@ -1,8 +1,8 @@
 import {App, Editor, MarkdownView, Modal,
 	Notice, Plugin, PluginSettingTab, Setting,
 	WorkspaceLeaf} from 'obsidian';
-import {ExampleView} from "./app/views/ExampleView";
-import {VIEW_TYPE_EXAMPLE} from "./app/views/ViewsConsts";
+import {ExampleView} from "./app/obsidian_views/ExampleView";
+import {VIEW_TYPE_EXAMPLE} from "./app/obsidian_views/ViewsConsts";
 
 // Remember to rename these classes and interfaces!
 

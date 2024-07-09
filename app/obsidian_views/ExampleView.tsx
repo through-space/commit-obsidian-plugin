@@ -2,7 +2,7 @@ import {ItemView, WorkspaceLeaf} from "obsidian";
 import {VIEW_TYPE_EXAMPLE} from "./ViewsConsts";
 import {Root, createRoot} from "react-dom/client";
 import { StrictMode } from "react";
-import {MainView} from "../components/main/MainView";
+import {MainView} from "../components/views/main/MainView";
 import {MainContextProvider} from "../context/MainContext";
 
 export class ExampleView extends ItemView {
