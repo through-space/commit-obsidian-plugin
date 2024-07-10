@@ -7,10 +7,6 @@ export const MainView = () => {
 	if (!obsidianFilesProvider) {
 		return null;
 	}
-	
-	console.log("obsidianFilesProvider");
-	console.log(obsidianFilesProvider.getFilesByProperty('name', 'test1'));
-	console.log("obsidianFilesProvider");
 
 	return (
 		<>
