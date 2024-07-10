@@ -7,5 +7,6 @@ export interface IMainContextProps {
 }
 
 export interface IMainContext {
-	obsidianFilesProvider: IObsidianFilesProvider;
+	obsidianFilesProvider?: IObsidianFilesProvider;
+	obsidianApp?: App;
 }

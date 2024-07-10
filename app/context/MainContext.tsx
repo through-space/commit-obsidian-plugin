@@ -2,15 +2,16 @@ import {createContext, FC, useContext} from "react";
 import {IMainContext, IMainContextProps} from "./MainContextTypes";
 import {ObsidianFilesProvider} from "../services/ObsidianFilesProvider/ObsidianFilesProvider";
 
-const MainContext = createContext<IMainContext|undefined>(undefined);
+const MainContext = createContext<IMainContext>({});
 
-export const useMainContext = (): IMainContext | undefined => {
+export const useMainContext = (): IMainContext => {
 	return useContext(MainContext);
 };
 
 export const MainContextProvider: FC <IMainContextProps> = ({obsidianApp, children}) => {
 	const context = {
-		obsidianFilesProvider: ObsidianFilesProvider({app: obsidianApp}),
+		obsidianApp,
+		obsidianFilesProvider: ObsidianFilesProvider(),
 	};
 
 	return (

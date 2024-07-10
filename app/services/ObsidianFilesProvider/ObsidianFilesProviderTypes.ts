@@ -2,8 +2,7 @@ import {App, TFile} from "obsidian";
 
 
 export interface IObsidianFilesProvider {
-	app: App;
-	getFileByNameProperty: (name: string) => TFile | null;
+	getFilesByProperty: (propertyName: string, propertyValue: string) => TFile [];
 }
 
 export interface IObsidianFilesProviderProps {

@@ -2,15 +2,14 @@ import {useMainContext} from "../../../context/MainContext";
 import {BranchNameTitle} from "../../styled_components/atoms/titles";
 
 export const MainView = () => {
-	const context = useMainContext();
+	const {obsidianFilesProvider} = useMainContext();
 
-	if (!context) {
+	if (!obsidianFilesProvider) {
 		return null;
 	}
-
-	const {obsidianFilesProvider} = context;
+	
 	console.log("obsidianFilesProvider");
-	console.log(obsidianFilesProvider);
+	console.log(obsidianFilesProvider.getFilesByProperty('name', 'test1'));
 	console.log("obsidianFilesProvider");
 
 	return (

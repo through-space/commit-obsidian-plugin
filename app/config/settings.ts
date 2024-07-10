@@ -1,1 +1,1 @@
-export const PROJECT_ROOT_FOLDER = "projects";
+export const PROJECT_ROOT_FOLDER = "projects/";

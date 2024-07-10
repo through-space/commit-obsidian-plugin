@@ -1,11 +1,8 @@
-import {IObsidianFilesProvider, IObsidianFilesProviderProps} from "./ObsidianFilesProviderTypes";
-import {getFileByNameProperty} from "./methods/getFileByNameProperty";
+import {IObsidianFilesProvider} from "./ObsidianFilesProviderTypes";
+import {getFilesByProperty} from "./methods/getFilesByProperty";
 
-export const ObsidianFilesProvider = (props: IObsidianFilesProviderProps): IObsidianFilesProvider => {
-	const {app} = props;
-
+export const ObsidianFilesProvider = (): IObsidianFilesProvider => {
 	return {
-		app,
-		getFileByNameProperty: getFileByNameProperty(app)
+		getFilesByProperty
 	};
 }
