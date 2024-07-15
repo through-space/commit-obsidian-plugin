@@ -3,6 +3,7 @@ export enum EBranchConnectionType {
 	CHILD = 'CHILD',
 }
 
+// export enum EBranchTime
 
 export interface IBranchConnection {
 	name: string;
@@ -14,6 +15,14 @@ export interface ICommitProps {
 	value?: number;
 }
 
+/**
+ * The way the Branch is committed.
+ * - Daily Tasks: like main->mind->read.
+ *
+ *
+ * Can be fully committed VS Option to choose partial 3 out of 7
+ *
+ */
 export interface ICommit {
 	(props: ICommitProps): void;
 }
@@ -22,7 +31,7 @@ export interface IBranch {
 	id: number;
 	name: string;
 
-	weight: number;
+	value: number;
 
 	connections: IBranchConnection[];
 

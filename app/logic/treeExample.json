@@ -1,0 +1,26 @@
+{
+	"branches": {
+		"branchID_1": {
+			"name": "main"
+		},
+		"branchID_2": {
+			"name": "mind",
+			"value": 10
+		},
+		"branchID_3": {
+			"name": "read",
+			"value": 4
+		},
+		"branchID_4": {
+			"name": "breathe",
+			"value": 3
+		}
+	},
+	"structure": {
+		"branchID_1": {
+			"connections": [
+				{}
+			]
+		}
+	}
+}
