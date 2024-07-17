@@ -15,6 +15,22 @@ ___
 - [ ] Navigation (current branch showing)
 - [ ] Filter tasks OR Show the structure
 - [ ] Check why the main view loads twice. Remove parts to debug
+- [ ] Date Lib
+- [ ] Some way to load only last commits for each branch
+
+## How commit happens ##
+
+- Main branch has N sub-branch
+- Each sub-branch has weight
+- subBranch1 has 3
+- subBranch2 has 4
+- Main branch has total weight of 7
+- If SubBranch1 is commited the MainBranch receives 3 points
+- **Weight is for passing to top level**
+- How much Weight is passed to the top level is determined of children contribution
+- If SubBranch1 is set to atLeast one, any child contribution triggers 100% parent weight passed to top level
+- If Subbranch1 is set to sum, all by percentages
+-
 
 This is a sample plugin for Obsidian (https://obsidian.md).
 

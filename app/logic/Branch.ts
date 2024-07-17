@@ -1,3 +1,5 @@
+import * as dayjs from "dayjs";
+
 export enum EBranchConnectionType {
 	PARENT = 'PARENT',
 	CHILD = 'CHILD',
@@ -6,11 +8,11 @@ export enum EBranchConnectionType {
 // export enum EBranchTime
 
 export interface IBranchConnection {
-	name: string;
+	branchName: string;
 	type: EBranchConnectionType;
 }
 
-export interface ICommitProps {
+export interface IDoCommitProps {
 	message: string;
 	value?: number;
 }
@@ -23,8 +25,16 @@ export interface ICommitProps {
  * Can be fully committed VS Option to choose partial 3 out of 7
  *
  */
+export interface IDoCommit {
+	(props: IDoCommitProps): void;
+}
+
+
+//TODO: ICommit should hold current values of the branch
 export interface ICommit {
-	(props: ICommitProps): void;
+	message: string;
+	occurredAt: dayjs.Dayjs
+	value: number;
 }
 
 export interface IBranch {
@@ -35,7 +45,9 @@ export interface IBranch {
 
 	connections: IBranchConnection[];
 
-	commit: ICommit;
+	doCommit: IDoCommit;
+
+	commits: ICommit[];
 
 	getValue: () => number;
 
