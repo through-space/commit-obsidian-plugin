@@ -1,6 +1,11 @@
-import {IBranch} from "./Branch";
+import {IBranch, ICommit, TBranchID} from "./Branch";
 
 export interface Repo {
 	id: string;
-	branches: IBranch[];
+	branches: {
+		[branchID: TBranchID]: IBranch
+	}
+	commits: {
+		[branchID: TBranchID]: ICommit[]
+	}
 }

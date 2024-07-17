@@ -1,4 +1,5 @@
 import * as dayjs from "dayjs";
+import {Dayjs} from "dayjs";
 
 export enum EBranchConnectionType {
 	PARENT = 'PARENT',
@@ -37,20 +38,29 @@ export interface ICommit {
 	value: number;
 }
 
+export type TBranchID = string;
+
 export interface IBranch {
-	id: number;
+	id: TBranchID;
 	name: string;
 
-	value: number;
+	/**
+	 * How much value is passed to parent
+	 */
+	contributionValue: number;
 
 	connections: IBranchConnection[];
 
 	doCommit: IDoCommit;
 
-	commits: ICommit[];
+	//TODO: check whether Dayjs object contains time. I need only date here, without time
+	getCommits: (dateStart: Dayjs, dateEnd: Dayjs) => {
+		[date: string]: ICommit
+	};
 
 	getValue: () => number;
 
+	getParents: () => IBranch[];
 
 	// status: string;
 	// createdAt: string;
