@@ -8,4 +8,5 @@ export interface Repo {
 	commits: {
 		[branchID: TBranchID]: ICommit[]
 	}
+	loadFromStorage: () => void
 }

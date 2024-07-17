@@ -62,6 +62,8 @@ export interface IBranch {
 
 	getParents: () => IBranch[];
 
+	frequency?: number;
+
 	// status: string;
 	// createdAt: string;
 	// updatedAt: string;
