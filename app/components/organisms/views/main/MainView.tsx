@@ -1,5 +1,5 @@
-import {useMainContext} from "../../../context/MainContext";
-import {BranchNameTitle} from "../../styled_components/atoms/titles";
+import {useMainContext} from "../../../../context/MainContext";
+import {BranchNameTitle} from "../../../atoms/titles";
 
 export const MainView = () => {
 	const {obsidianFilesProvider} = useMainContext();
