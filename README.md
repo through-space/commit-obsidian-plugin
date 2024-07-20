@@ -1,7 +1,7 @@
 ---
 title: Obsidian Commit Plugin
 author: Leonid Vilensky
-date: 2022-10-10
+date: 2024-07-04
 ---
 
 # Obsidian Commit Plugin
