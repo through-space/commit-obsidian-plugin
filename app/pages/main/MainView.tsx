@@ -1,6 +1,5 @@
 import {useMainContext} from "context/MainContext";
-import {BranchNameTitle} from "components/atoms/headers/titles";
-import {TopInfoSection} from "components/organisms/view-sections/TopInfoSection/TopInfoSection";
+import {BasicLayout} from "@components/organisms/layouts/BasicLayout/BasicLayout";
 
 export const MainView = () => {
 	const {obsidianFilesProvider} = useMainContext();
@@ -11,13 +10,7 @@ export const MainView = () => {
 
 	return (
 		<>
-			<BranchNameTitle>
-				I am the title!
-				*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-				Hello again! (exclamation sign from AI)
-			</BranchNameTitle>
-			<h4>Hello, React!</h4>
-			<TopInfoSection/>
+			<BasicLayout/>
 		</>
 	);
 };

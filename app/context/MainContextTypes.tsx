@@ -1,5 +1,6 @@
 import {App} from "obsidian";
 import {IObsidianFilesProvider} from "../services/ObsidianFilesProvider/ObsidianFilesProviderTypes";
+import {TBranchID} from "../logic/Branch";
 
 export interface IMainContextProps {
 	obsidianApp: App;
@@ -9,4 +10,5 @@ export interface IMainContextProps {
 export interface IMainContext {
 	obsidianFilesProvider?: IObsidianFilesProvider;
 	obsidianApp?: App;
+	currentBranchID: TBranchID;
 }
