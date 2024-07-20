@@ -1,6 +1,6 @@
 import {FC} from "react";
 
-export const TopInfoSection: FC = () => {
+export const CurrentBranchInfo: FC = () => {
 	return <>Overview</>
 }
 
