@@ -1,7 +1,7 @@
 import {ItemView, WorkspaceLeaf} from "obsidian";
 import {Root, createRoot} from "react-dom/client";
 import {StrictMode} from "react";
-import {MainView} from "../components/organisms/views/main/MainView";
+import {MainView} from "../pages/main/MainView";
 import {MainContextProvider} from "../context/MainContext";
 import {VIEW_TYPE_EXAMPLE} from "./ViewsConsts";
 
