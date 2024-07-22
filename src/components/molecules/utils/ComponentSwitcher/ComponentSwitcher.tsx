@@ -1,4 +1,4 @@
-import {IComponentSwitcherProps} from "@components/molecules/panels/ComponentSwitcher/ComponentSwitcherInterfaces";
+import {IComponentSwitcherProps} from "@components/molecules/utils/ComponentSwitcher/ComponentSwitcherInterfaces";
 import {FC, useState} from "react";
 
 // TODO: Maybe not a great idea to use index as currentComponent?

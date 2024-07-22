@@ -8,9 +8,5 @@ export const MainView = () => {
 		return null;
 	}
 
-	return (
-		<>
-			<BasicLayout/>
-		</>
-	);
+	return <BasicLayout/>;
 };

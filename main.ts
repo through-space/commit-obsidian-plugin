@@ -1,8 +1,10 @@
-import {App, Editor, MarkdownView, Modal,
+import {
+	App, Editor, MarkdownView, Modal,
 	Notice, Plugin, PluginSettingTab, Setting,
-	WorkspaceLeaf} from 'obsidian';
-import {CommitView} from "./app/obsidian_views/CommitView";
-import {VIEW_TYPE_EXAMPLE} from "./app/obsidian_views/ViewsConsts";
+	WorkspaceLeaf
+} from 'obsidian';
+import {CommitView} from "./src/obsidian_views/CommitView";
+import {VIEW_TYPE_EXAMPLE} from "./src/obsidian_views/ViewsConsts";
 
 // Remember to rename these classes and interfaces!
 
@@ -99,7 +101,7 @@ export default class MyPlugin extends Plugin {
 
 	async activateView() {
 		//TODO: add logic here
-		const { workspace } = this.app;
+		const {workspace} = this.app;
 
 		let leaf: WorkspaceLeaf | null = null;
 		const leaves = workspace.getLeavesOfType(VIEW_TYPE_EXAMPLE);
@@ -114,7 +116,7 @@ export default class MyPlugin extends Plugin {
 			if (!leaf) {
 				return;
 			}
-			await leaf.setViewState({ type: VIEW_TYPE_EXAMPLE, active: true });
+			await leaf.setViewState({type: VIEW_TYPE_EXAMPLE, active: true});
 		}
 
 		// "Reveal" the leaf in case it is in a collapsed sidebar

@@ -1,3 +1,5 @@
 export const CliPanel = () => {
-	return <>CliPanel</>
+	return <>
+		Terminal here
+	</>
 }
