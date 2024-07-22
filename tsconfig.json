@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./app",
+		"baseUrl": "./src",
 		"paths": {
 			"@components/*": [
 				"components/*"
@@ -26,6 +26,6 @@
 	},
 	"include": [
 		"**/*.ts",
-		"app"
+		"src"
 	]
 }

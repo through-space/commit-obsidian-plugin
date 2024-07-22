@@ -5,7 +5,7 @@ import {
 	BasicLayoutContentWrapper, BasicLayoutMiddleComponentWrapper,
 	BasicLayoutTopComponentWrapper
 } from "@components/organisms/layouts/BasicLayout/BasicLayoutStyledComponents";
-import {ComponentSwitcher} from "@components/molecules/panels/ComponentSwitcher/ComponentSwitcher";
+import {ComponentSwitcher} from "@components/molecules/utils/ComponentSwitcher/ComponentSwitcher";
 import {CurrentBranchInfo} from "@components/molecules/cards/CurrentBranchInfo/CurrentBranchInfo";
 import {CliPanel} from "@components/molecules/cards/CliPanel/CliPanel";
 import {TasksView} from "@components/organisms/views/TasksView/TasksView";
