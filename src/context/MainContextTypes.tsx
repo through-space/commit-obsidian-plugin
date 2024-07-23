@@ -1,6 +1,7 @@
 import {App} from "obsidian";
 import {IObsidianFilesProvider} from "../services/ObsidianFilesProvider/ObsidianFilesProviderTypes";
-import {TBranchID} from "../logic/entities/Branch/Branch";
+import {IRepo} from "@logic/entities/Repo/Repo";
+import {TBranchID} from "@logic/entities/Branch/BranchInterfaces";
 
 export interface IMainContextProps {
 	obsidianApp: App;
@@ -8,7 +9,8 @@ export interface IMainContextProps {
 }
 
 export interface IMainContext {
-	obsidianFilesProvider?: IObsidianFilesProvider;
 	obsidianApp?: App;
-	currentBranchID: TBranchID;
+	obsidianFilesProvider?: IObsidianFilesProvider;
+	currentBranchID?: TBranchID;
+	repo?: IRepo | null;
 }

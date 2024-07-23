@@ -2,3 +2,4 @@ import {getCompletionRateByPercentage} from "../logic/methods/completion/Complet
 
 export const commitKeyDateFormat = "YYYY-MM-DD";
 export const defaultCompletionRateMethod = getCompletionRateByPercentage;
+export const defaultMainBranchID = "main";

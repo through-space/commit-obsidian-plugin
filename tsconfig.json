@@ -4,6 +4,12 @@
 		"paths": {
 			"@components/*": [
 				"components/*"
+			],
+			"@data/*": [
+				"data/*"
+			],
+			"@logic/*": [
+				"logic/*"
 			]
 		},
 		"inlineSourceMap": true,
