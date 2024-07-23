@@ -1,6 +1,8 @@
-import {IBranch, ICommit, TBranchID} from "../Branch/Branch";
+import {IBranch} from "../Branch/Branch";
+import {TBranchID} from "../Branch/BranchInterfaces";
+import {ICommit} from "../Commit/Commit";
 
-export interface Repo {
+export interface IRepo {
 	id: string;
 	branches: {
 		[branchID: TBranchID]: IBranch
@@ -8,5 +10,5 @@ export interface Repo {
 	commits: {
 		[branchID: TBranchID]: ICommit[]
 	}
-	loadFromStorage: () => void
+	mainBranchID: TBranchID
 }
