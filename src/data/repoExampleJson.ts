@@ -1,4 +1,4 @@
-export const repoExample = {
+export const repoExampleJson = JSON.stringify({
 	"branches": {
 		"branchID_1": {
 			"name": "main"
@@ -24,4 +24,4 @@ export const repoExample = {
 			]
 		}
 	}
-}
+});

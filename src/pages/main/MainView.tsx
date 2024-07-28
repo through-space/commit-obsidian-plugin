@@ -8,7 +8,7 @@ export const MainView = () => {
 		return null;
 	}
 
-	console.log(repo);
+	console.log("repo", repo);
 
 	return <BasicLayout/>;
 };

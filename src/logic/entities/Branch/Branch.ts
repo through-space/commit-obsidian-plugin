@@ -1,4 +1,4 @@
-import {IBranchConnection, IBranchCompletionRateMethod, TBranchID} from "./BranchInterfaces";
+import {IBranchConnection, IBranchCompletionRateMethod, TBranchID, EBranchConnectionType} from "./BranchInterfaces";
 
 
 /**
@@ -35,7 +35,8 @@ export interface IBranch {
 	getCompletionPercentage: IBranchCompletionRateMethod;
 
 	//TODO: add filters? by date, priority, time
-	getParents: () => IBranch[];
+	// getParents: () => IBranch[];
+	getConnections: (type?: EBranchConnectionType) => IBranch[]
 
 	frequency?: number;
 

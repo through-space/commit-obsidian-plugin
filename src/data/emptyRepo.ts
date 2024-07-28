@@ -12,7 +12,7 @@ export const emptyRepo: IRepo = {
 			connections: [],
 			contributionValue: 0,
 			getCompletionPercentage: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
-			getParents: () => [],
+			getConnections: () => [],
 		}
 	},
 	commits: {},

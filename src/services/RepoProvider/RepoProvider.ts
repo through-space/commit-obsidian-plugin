@@ -1,10 +1,17 @@
-import {IRepoProvider} from "./RepoProviderInterfaces";
-import {getRepoFromJson} from "./methods/getRepoFromJson";
+import {ERepoProviderType, IRepoProvider} from "./RepoProviderInterfaces";
+import {JsonRepoProvider} from "./providers/JsonRepoProvider";
 
-export const RepoProvider: IRepoProvider = {
-	getRepoFromJson
-	// getRepoFromObsidian(): Promise<IRepo> {
-	// 	return Promise.resolve(undefined);
-	// }
+export const RepoProvider = {
+	getRepoProvider: (config: repoType: ERepoProviderType) => {
+		if (repoType === repoType) {
+			return JsonRepoProvider;
+		}
+	},
+	getRepo: async () => {
+		return JsonRepoProvider.getRepo();
+	}
+}
 
+export const getRepoProvider = (): IRepoProvider => {
+	return RepoProvider;
 }
