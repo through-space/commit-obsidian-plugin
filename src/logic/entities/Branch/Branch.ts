@@ -32,11 +32,11 @@ export interface IBranch {
 	// };
 
 	// getValue: () => IBranchGetValue;
-	getCompletionPercentage: IBranchCompletionRateMethod;
+	getCompletionRate: IBranchCompletionRateMethod;
 
 	//TODO: add filters? by date, priority, time
 	// getParents: () => IBranch[];
-	getConnections: (type?: EBranchConnectionType) => IBranch[]
+	getConnections: (type?: EBranchConnectionType) => IBranchConnection[]
 
 	frequency?: number;
 

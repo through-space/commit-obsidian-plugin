@@ -7,20 +7,32 @@ export enum ERepoProviderType {
 }
 
 export interface IRepoProviderProps {
-	type: ERepoProviderType
+	type: ERepoProviderType;
 }
 
 export interface IJsonRepoProviderProps extends IRepoProviderProps {
-	path: string
+	path: string;
 }
 
 export interface IMockupRepoProviderProps extends IRepoProviderProps {
-	repo: IRepo
+	repo: IRepo;
 }
 
 export type IObsidianRepoProviderProps = IRepoProviderProps
 
+
+export interface IRepoProviderConfig {
+	type: ERepoProviderType;
+}
+
 export interface IRepoProvider {
-	getRepo: () => Promise<IRepo>
-	getRepoProvider: (repoType: ERepoProviderType) => IRepoProvider
+	getRepo: (config: IRepoProviderConfig) => Promise<IRepo>
+}
+
+export interface IJsonRepoProviderConfig extends IRepoProviderConfig {
+	json: string;
+}
+
+export interface IRepoProviderFactory {
+	getRepoProvider: (config: IRepoProviderConfig) => IRepoProvider
 }

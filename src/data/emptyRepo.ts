@@ -11,7 +11,7 @@ export const emptyRepo: IRepo = {
 			name: defaultMainBranchID,
 			connections: [],
 			contributionValue: 0,
-			getCompletionPercentage: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
+			getCompletionRate: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
 			getConnections: () => [],
 		}
 	},
