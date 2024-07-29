@@ -10,7 +10,7 @@ export enum EBranchConnectionType {
 }
 
 export interface IBranchConnection {
-	branchName: string;
+	branch: TBranchID;
 	type: EBranchConnectionType;
 }
 

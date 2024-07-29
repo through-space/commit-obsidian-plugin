@@ -2,6 +2,7 @@ import {defaultMainBranchID} from "../config/commonConsts";
 import {IRepo} from "@logic/entities/Repo/Repo";
 import {CompletionRateMethodProvider} from "@logic/methods/completion/CompletionRateMethodProvider";
 import {ECompletionRateMethod} from "@logic/methods/completion/CompletionRateMethodTypes";
+import {getBranch} from "../services/RepoProvider/build-methods/repoMethods";
 
 export const emptyRepo: IRepo = {
 	id: "1",
@@ -11,10 +12,11 @@ export const emptyRepo: IRepo = {
 			name: defaultMainBranchID,
 			connections: [],
 			contributionValue: 0,
-			getCompletionPercentage: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
-			getParents: () => [],
+			commits: [],
+			getCompletionRate: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
+			getConnections: () => [],
 		}
 	},
-	commits: {},
+	getBranch,
 	mainBranchID: defaultMainBranchID
 }

@@ -1,4 +1,5 @@
-import {IBranchConnection, IBranchCompletionRateMethod, TBranchID} from "./BranchInterfaces";
+import {IBranchConnection, IBranchCompletionRateMethod, TBranchID, EBranchConnectionType} from "./BranchInterfaces";
+import {ICommit} from "@logic/entities/Commit/Commit";
 
 
 /**
@@ -23,6 +24,7 @@ export interface IBranch {
 	contributionValue: number;
 
 	connections: IBranchConnection[];
+	commits: ICommit[];
 
 	// doCommit: IDoCommit;
 
@@ -32,10 +34,11 @@ export interface IBranch {
 	// };
 
 	// getValue: () => IBranchGetValue;
-	getCompletionPercentage: IBranchCompletionRateMethod;
+	getCompletionRate: IBranchCompletionRateMethod;
 
 	//TODO: add filters? by date, priority, time
-	getParents: () => IBranch[];
+	// getParents: () => IBranch[];
+	getConnections: (type?: EBranchConnectionType) => IBranchConnection[]
 
 	frequency?: number;
 

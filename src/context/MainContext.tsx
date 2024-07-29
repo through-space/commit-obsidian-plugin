@@ -1,9 +1,14 @@
 import {createContext, FC, useContext, useEffect, useState} from "react";
 import {IMainContext, IMainContextProps} from "./MainContextTypes";
 import {ObsidianFilesProvider} from "../services/ObsidianFilesProvider/ObsidianFilesProvider";
-import {RepoProvider} from "../services/RepoProvider/RepoProvider";
 import {defaultMainBranchID} from "../config/commonConsts";
 import {IRepo} from "@logic/entities/Repo/Repo";
+import {RepoProviderFactory} from "../services/RepoProvider/RepoProviderFactory";
+import {
+	ERepoProviderType,
+	IJsonRepoProviderConfig,
+} from "../services/RepoProvider/RepoProviderInterfaces";
+import {repoExampleJson} from "@data/repoExampleJson";
 
 const MainContext = createContext<IMainContext>({});
 
@@ -16,7 +21,13 @@ export const MainContextProvider: FC<IMainContextProps> = ({obsidianApp, childre
 
 	const fetchRepo = async () => {
 		//TODO: add error handling
-		const repoData = await RepoProvider.getRepoFromJson();
+		const repoConfig: IJsonRepoProviderConfig = {
+			type: ERepoProviderType.JSON,
+			json: repoExampleJson
+		};
+
+		const repoProvider = RepoProviderFactory.getRepoProvider(repoConfig);
+		const repoData = await repoProvider.getRepo(repoConfig);
 		setRepo(repoData);
 	};
 
