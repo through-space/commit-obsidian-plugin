@@ -6,13 +6,16 @@ import {IBranchConnection, TBranchID} from "@logic/entities/Branch/BranchInterfa
 import {CompletionRateMethodProvider} from "@logic/methods/completion/CompletionRateMethodProvider";
 import {ECompletionRateMethod} from "@logic/methods/completion/CompletionRateMethodTypes";
 import {getConnections} from "@logic/methods/branchMethods";
+import {ICommit} from "@logic/entities/Commit/Commit";
+import {createBranchID, getBranch} from "../build-methods/repoMethods";
 
 interface IBranchObject {
 	id: TBranchID;
 	name: string;
-	connections: IBranchConnection[],
-	contributionValue: number,
-	completionRateMethod: ECompletionRateMethod,
+	connections: IBranchConnection[];
+	commits: ICommit[];
+	contributionValue: number;
+	completionRateMethod: ECompletionRateMethod;
 }
 
 const buildRepoFromString = (json: string): IRepo => {
@@ -21,8 +24,9 @@ const buildRepoFromString = (json: string): IRepo => {
 	const repo: IRepo = {
 		id: parsed.id,
 		branches: {},
-		commits: {},
-		mainBranchID: parsed.mainBranchID
+		mainBranchID: parsed.mainBranchID,
+		getBranch,
+		createBranchID,
 	};
 
 	for (const branchID in parsed.branches) {
@@ -37,17 +41,17 @@ const buildBranch = (branchObject: IBranchObject): IBranch => {
 	return {
 		id: branchObject.id,
 		name: branchObject.name,
-		connections: branchObject.connections,
-		contributionValue: branchObject.contributionValue,
+		connections: branchObject?.connections ?? [],
+		commits: branchObject?.commits ?? [],
+		contributionValue: branchObject?.contributionValue,
 		getCompletionRate: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
-		getConnections: getConnections
+		getConnections
 	}
 }
 
 export const JsonRepoProvider: IRepoProvider = {
 	async getRepo(config: IJsonRepoProviderConfig) {
 		const json = config?.json;
-
 		if (!json) {
 			return Promise.resolve(emptyRepo);
 		}

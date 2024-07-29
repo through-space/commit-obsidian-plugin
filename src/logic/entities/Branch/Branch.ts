@@ -1,4 +1,5 @@
 import {IBranchConnection, IBranchCompletionRateMethod, TBranchID, EBranchConnectionType} from "./BranchInterfaces";
+import {ICommit} from "@logic/entities/Commit/Commit";
 
 
 /**
@@ -23,6 +24,7 @@ export interface IBranch {
 	contributionValue: number;
 
 	connections: IBranchConnection[];
+	commits: ICommit[];
 
 	// doCommit: IDoCommit;
 

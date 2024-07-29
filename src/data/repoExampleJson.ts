@@ -1,6 +1,6 @@
 export const repoExampleJson = JSON.stringify({
 	"id": "JsonTestRepo",
-	mainBranchID: "branchID_1",
+	"mainBranchID": "branchID_1",
 	"branches": {
 		"branchID_1": {
 			"id": "branchID_1",
