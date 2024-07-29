@@ -7,7 +7,6 @@ import {RepoProviderFactory} from "../services/RepoProvider/RepoProviderFactory"
 import {
 	ERepoProviderType,
 	IJsonRepoProviderConfig,
-	IRepoProviderConfig
 } from "../services/RepoProvider/RepoProviderInterfaces";
 import {repoExampleJson} from "@data/repoExampleJson";
 
