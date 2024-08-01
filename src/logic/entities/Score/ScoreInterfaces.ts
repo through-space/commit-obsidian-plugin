@@ -1,1 +1,3 @@
-export interface Score
+export interface ScoreEntry {
+	
+}

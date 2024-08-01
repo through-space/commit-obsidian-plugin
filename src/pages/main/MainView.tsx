@@ -5,7 +5,7 @@ export const MainView = () => {
 	const {obsidianFilesProvider, repo, currentBranchID} = useMainContext();
 
 	if (currentBranchID) {
-		console.log("cur branch", repo?.getBranch(currentBranchID));
+		console.log("cur branch: asdfasdfsadfs", repo?.getBranch(currentBranchID));
 	}
 
 	if (!obsidianFilesProvider) {

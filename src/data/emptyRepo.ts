@@ -1,22 +1,26 @@
-import {defaultMainBranchID} from "../config/commonConsts";
+import {DEFAULT_BRANCH_PALETTE, DEFAULT_MAIN_BRANCH_ID} from "../config/commonConsts";
 import {IRepo} from "@logic/entities/Repo/Repo";
-import {CompletionRateMethodProvider} from "@logic/methods/completion/CompletionRateMethodProvider";
-import {ECompletionRateMethod} from "@logic/methods/completion/CompletionRateMethodTypes";
-import {getBranch} from "../services/RepoProvider/build-methods/repoMethods";
+import {
+	CompletionScoreCalculationMethodProvider
+} from "@logic/methods/completion/CompletionScoreCalculationMethodProvider";
+import {ECompletionScoreCalculationMethod} from "@logic/methods/completion/CompletionScoreCalculationMethodTypes";
+import {createBranchID, getBranch} from "@services/StorageProvider/common/repoMethods";
 
 export const emptyRepo: IRepo = {
-	id: "1",
+	id: "empty_repo_1",
 	branches: {
-		[defaultMainBranchID]: {
-			id: defaultMainBranchID,
-			name: defaultMainBranchID,
+		[DEFAULT_MAIN_BRANCH_ID]: {
+			id: DEFAULT_MAIN_BRANCH_ID,
+			name: DEFAULT_MAIN_BRANCH_ID,
 			connections: [],
 			contributionValue: 0,
-			commits: [],
-			getCompletionRate: CompletionRateMethodProvider.getByMethodName(ECompletionRateMethod.PERCENTAGE),
+			commits: {},
+			getCompletionRate: CompletionScoreCalculationMethodProvider.getByMethodName(ECompletionScoreCalculationMethod.PERCENTAGE),
 			getConnections: () => [],
+			palette: DEFAULT_BRANCH_PALETTE,
 		}
 	},
 	getBranch,
-	mainBranchID: defaultMainBranchID
+	createBranchID,
+	mainBranchID: DEFAULT_MAIN_BRANCH_ID
 }

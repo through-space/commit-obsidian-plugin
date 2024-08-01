@@ -1,18 +1,18 @@
-import {IBranchCompletionRateMethod} from "../../entities/Branch/BranchInterfaces";
+import {IBranchCompletionScoreCalculationMethod} from "../../entities/Branch/BranchInterfaces";
 import {getCompletionRateByPercentage} from "./CompletionRateMethods";
 
-export enum ECompletionRateMethod {
+export enum ECompletionScoreCalculationMethod {
 	PERCENTAGE = "PERCENTAGE",
 	AVERAGE = "AVERAGE",
 	AT_LEAST_ONE = "AT_LEAST_ONE",
 }
 
-export interface ICompletionRateMethodProvider {
-	getByMethodName: (methodName: ECompletionRateMethod) => IBranchCompletionRateMethod;
+export interface ICompletionScoreCalculationMethodProvider {
+	getByMethodName: (methodName: ECompletionScoreCalculationMethod) => IBranchCompletionScoreCalculationMethod;
 }
 
-export const CompletionRateMethodsMap = new Map<ECompletionRateMethod, IBranchCompletionRateMethod>(
+export const CompletionScoreCalculationMethodsMap = new Map<ECompletionScoreCalculationMethod, IBranchCompletionScoreCalculationMethod>(
 	[
-		[ECompletionRateMethod.PERCENTAGE, getCompletionRateByPercentage]
+		[ECompletionScoreCalculationMethod.PERCENTAGE, getCompletionRateByPercentage]
 	]
 );
