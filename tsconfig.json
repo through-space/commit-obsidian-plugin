@@ -10,6 +10,12 @@
 			],
 			"@logic/*": [
 				"logic/*"
+			],
+			"@services/*": [
+				"services/*"
+			],
+			"@config/*": [
+				"config/*"
 			]
 		},
 		"inlineSourceMap": true,

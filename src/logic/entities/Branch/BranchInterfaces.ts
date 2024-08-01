@@ -1,17 +1,7 @@
 export type TBranchID = string;
 
-export interface IBranchCompletionRateMethod {
+export interface IBranchCompletionScoreCalculationMethod {
 	(): number;
-}
-
-export enum EBranchConnectionType {
-	PARENT = "PARENT",
-	CHILD = "CHILD",
-}
-
-export interface IBranchConnection {
-	branch: TBranchID;
-	type: EBranchConnectionType;
 }
 
 export interface IDoCommitProps {

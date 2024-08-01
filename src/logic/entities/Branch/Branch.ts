@@ -1,5 +1,11 @@
-import {IBranchConnection, IBranchCompletionRateMethod, TBranchID, EBranchConnectionType} from "./BranchInterfaces";
+import {IBranchCompletionScoreCalculationMethod, TBranchID} from "./BranchInterfaces";
 import {ICommit} from "@logic/entities/Commit/Commit";
+import {EBranchPalette} from "@logic/entities/BranchPalette/BranchPalettes";
+import {
+	EBranchConnectionType,
+	IBranchConnection,
+	IBranchConnectionRawObject
+} from "@logic/entities/Connection/ConnectionInterfaces";
 
 
 /**
@@ -17,14 +23,16 @@ import {ICommit} from "@logic/entities/Commit/Commit";
 export interface IBranch {
 	id: TBranchID;
 	name: string;
+	palette: string[];
 
 	/**
 	 * How much value is passed to parent
 	 */
 	contributionValue: number;
-
 	connections: IBranchConnection[];
-	commits: ICommit[];
+	commits: {
+		[date: string]: ICommit[]
+	};
 
 	// doCommit: IDoCommit;
 
@@ -34,7 +42,7 @@ export interface IBranch {
 	// };
 
 	// getValue: () => IBranchGetValue;
-	getCompletionRate: IBranchCompletionRateMethod;
+	getCompletionRate: IBranchCompletionScoreCalculationMethod;
 
 	//TODO: add filters? by date, priority, time
 	// getParents: () => IBranch[];
@@ -53,4 +61,12 @@ export interface IBranch {
 	// branchUsers: IBranchUser[];
 	// branchServices: IBranchService[];
 	// branchSchedules: IBranchSchedule[];
+}
+
+
+export interface IBranchRawObject {
+	id: TBranchID;
+	name: string;
+	palette: EBranchPalette;
+	connections: IBranchConnectionRawObject[];
 }

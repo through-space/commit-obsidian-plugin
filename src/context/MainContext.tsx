@@ -1,14 +1,11 @@
 import {createContext, FC, useContext, useEffect, useState} from "react";
 import {IMainContext, IMainContextProps} from "./MainContextTypes";
-import {ObsidianFilesProvider} from "../services/ObsidianFilesProvider/ObsidianFilesProvider";
-import {defaultMainBranchID} from "../config/commonConsts";
+import {ObsidianFilesProvider} from "@services/ObsidianFilesProvider/ObsidianFilesProvider";
+import {DEFAULT_MAIN_BRANCH_ID, DEFAULT_REPO_ID} from "@config/commonConsts";
 import {IRepo} from "@logic/entities/Repo/Repo";
-import {RepoProviderFactory} from "../services/RepoProvider/RepoProviderFactory";
-import {
-	ERepoProviderType,
-	IJsonRepoProviderConfig,
-} from "../services/RepoProvider/RepoProviderInterfaces";
-import {repoExampleJson} from "@data/repoExampleJson";
+import {StorageProviderFactory} from "@services/StorageProvider/StorageProviderFactory";
+import {activeStorageProviders} from "@config/storageConfig";
+import {IStorageProviderConfig} from "@services/StorageProvider/StorageProviderInterfaces";
 
 const MainContext = createContext<IMainContext>({});
 
@@ -21,14 +18,13 @@ export const MainContextProvider: FC<IMainContextProps> = ({obsidianApp, childre
 
 	const fetchRepo = async () => {
 		//TODO: add error handling
-		const repoConfig: IJsonRepoProviderConfig = {
-			type: ERepoProviderType.JSON,
-			json: repoExampleJson
+		const storageConfig: IStorageProviderConfig = {
+			type: activeStorageProviders[0],
 		};
+		const storageProvider = StorageProviderFactory.getStorageProvider(storageConfig);
 
-		const repoProvider = RepoProviderFactory.getRepoProvider(repoConfig);
-		const repoData = await repoProvider.getRepo(repoConfig);
-		setRepo(repoData);
+		const repo = await storageProvider.getRepo(DEFAULT_REPO_ID);
+		setRepo(repo);
 	};
 
 	useEffect(() => {
@@ -39,7 +35,7 @@ export const MainContextProvider: FC<IMainContextProps> = ({obsidianApp, childre
 		obsidianApp,
 		obsidianFilesProvider: ObsidianFilesProvider(),
 		repo,
-		currentBranchID: repo ? repo.mainBranchID : defaultMainBranchID,
+		currentBranchID: repo ? repo.mainBranchID : DEFAULT_MAIN_BRANCH_ID,
 	};
 
 	return (
