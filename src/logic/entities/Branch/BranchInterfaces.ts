@@ -1,7 +1,9 @@
+import * as dayjs from "dayjs";
+
 export type TBranchID = string;
 
 export interface IBranchCompletionScoreCalculationMethod {
-	(): number;
+	(date?: dayjs.Dayjs): number;
 }
 
 export interface IDoCommitProps {

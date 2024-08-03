@@ -27,6 +27,9 @@
 		"@typescript-eslint/ban-ts-comment": "off",
 		"no-prototype-builtins": "off",
 		"@typescript-eslint/no-empty-function": "off",
-		"quotes": ["error", "double"]
+		"quotes": [
+			"error",
+			"double"
+		]
 	}
 }

@@ -1,4 +1,4 @@
-import {IBranchCompletionScoreCalculationMethod} from "../../entities/Branch/BranchInterfaces";
+import {IBranchCompletionScoreCalculationMethod} from "../BranchInterfaces";
 
 
 export const getCompletionRateByPercentage: IBranchCompletionScoreCalculationMethod = () => {

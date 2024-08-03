@@ -1,18 +1,26 @@
-import {useMainContext} from "context/MainContext";
-import {BasicLayout} from "@components/organisms/layouts/BasicLayout/BasicLayout";
+import { useMainContext } from "context/MainContext";
+import { BasicLayout } from "@components/organisms/layouts/BasicLayout/BasicLayout";
+import { useBranchPaletteService } from "../../hooks/useBranchPaletteService";
 
 export const MainView = () => {
-	const {obsidianFilesProvider, repo, currentBranchID} = useMainContext();
+	const BranchPaletteService = useBranchPaletteService({});
 
-	if (currentBranchID) {
-		console.log("cur branch: asdfasdfsadfs", repo?.getBranch(currentBranchID));
-	}
+	console.log("BranchPaletteService in MainView", BranchPaletteService);
 
-	if (!obsidianFilesProvider) {
-		return null;
-	}
+	// const { obsidianFilesProvider, repo, currentBranchID } = useMainContext();
 
-	console.log("repo", repo);
+	// if (currentBranchID) {
+	// 	console.log(
+	// 		"cur branch: asdfasdfsadfs",
+	// 		repo?.getBranch(currentBranchID),
+	// 	);
+	// }
 
-	return <BasicLayout/>;
+	// if (!obsidianFilesProvider) {
+	// 	return null;
+	// }
+	//
+	// console.log("repo", repo);
+
+	return <BasicLayout />;
 };

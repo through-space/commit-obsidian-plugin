@@ -1,8 +1,10 @@
 import {IBranch} from "@logic/entities/Branch/Branch";
 import {
 	CompletionScoreCalculationMethodProvider
-} from "@logic/methods/completion/CompletionScoreCalculationMethodProvider";
-import {ECompletionScoreCalculationMethod} from "@logic/methods/completion/CompletionScoreCalculationMethodTypes";
+} from "@logic/entities/Branch/completion-methods/CompletionScoreCalculationMethodProvider";
+import {
+	ECompletionScoreCalculationMethod
+} from "@logic/entities/Branch/completion-methods/CompletionScoreCalculationMethodTypes";
 import {TBranchID} from "@logic/entities/Branch/BranchInterfaces";
 import {ICommit} from "@logic/entities/Commit/Commit";
 import {defaultBranch} from "./defaultBranch";
@@ -27,6 +29,6 @@ export const buildBranch = (branchObject: IRawBranchObject): IBranch => {
 		connections: branchObject?.connections ?? [],
 		commits: branchObject?.commits ?? {},
 		contributionValue: branchObject?.contributionValue || 0,
-		getCompletionRate: CompletionScoreCalculationMethodProvider.getByMethodName(branchObject.completionRateMethod),
+		getCompletionScore: CompletionScoreCalculationMethodProvider.getByMethodName(branchObject.completionRateMethod),
 	}
 }

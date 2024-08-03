@@ -1,12 +1,14 @@
-import {IBranchCompletionScoreCalculationMethod, TBranchID} from "./BranchInterfaces";
-import {ICommit} from "@logic/entities/Commit/Commit";
-import {EBranchPalette} from "@logic/entities/BranchPalette/BranchPalettes";
+import {
+	IBranchCompletionScoreCalculationMethod,
+	TBranchID,
+} from "./BranchInterfaces";
+import { ICommit } from "@logic/entities/Commit/Commit";
 import {
 	EBranchConnectionType,
 	IBranchConnection,
-	IBranchConnectionRawObject
+	IBranchConnectionRawObject,
 } from "@logic/entities/Connection/ConnectionInterfaces";
-
+import { EBranchPalette } from "@logic/entities/BranchPalette/BranchPaletteInterfaces";
 
 /**
  * The way the Branch is committed.
@@ -17,13 +19,12 @@ import {
  *
  */
 
-
 //TODO: ICommit should hold current values of the branch
 
 export interface IBranch {
 	id: TBranchID;
 	name: string;
-	palette: string[];
+	palette: EBranchPalette;
 
 	/**
 	 * How much value is passed to parent
@@ -31,7 +32,7 @@ export interface IBranch {
 	contributionValue: number;
 	connections: IBranchConnection[];
 	commits: {
-		[date: string]: ICommit[]
+		[date: string]: ICommit[];
 	};
 
 	// doCommit: IDoCommit;
@@ -42,11 +43,11 @@ export interface IBranch {
 	// };
 
 	// getValue: () => IBranchGetValue;
-	getCompletionRate: IBranchCompletionScoreCalculationMethod;
+	getCompletionScore: IBranchCompletionScoreCalculationMethod;
 
 	//TODO: add filters? by date, priority, time
 	// getParents: () => IBranch[];
-	getConnections: (type?: EBranchConnectionType) => IBranchConnection[]
+	getConnections: (type?: EBranchConnectionType) => IBranchConnection[];
 
 	frequency?: number;
 
@@ -62,7 +63,6 @@ export interface IBranch {
 	// branchServices: IBranchService[];
 	// branchSchedules: IBranchSchedule[];
 }
-
 
 export interface IBranchRawObject {
 	id: TBranchID;

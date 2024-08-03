@@ -1,4 +1,4 @@
-import {IBranchCompletionScoreCalculationMethod} from "../../entities/Branch/BranchInterfaces";
+import {IBranchCompletionScoreCalculationMethod} from "../BranchInterfaces";
 import {getCompletionRateByPercentage} from "./CompletionRateMethods";
 
 export enum ECompletionScoreCalculationMethod {
